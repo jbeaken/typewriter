@@ -10,16 +10,6 @@
  * }
  */
 
-class ListNode {
-    val: number
-    next: ListNode | null
-
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val)
-        this.next = (next===undefined ? null : next)
-    }
-}
-
 // 342 and 465
 var num1_1 = new ListNode(3, null);
 var num1_2 = new ListNode(4, num1_1);

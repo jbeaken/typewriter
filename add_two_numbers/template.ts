@@ -9,31 +9,41 @@ class ListNode {
 }
 
 // 342 and 465
-var num1_1 = new ListNode(3, null);
-var num1_2 = new ListNode(4, num1_1);
-var num1_3 = new ListNode(2, num1_2);
+let num1 = getListNodeFromNumber( 342 )
+let num2 = getListNodeFromNumber( 465 )
 
-var num2_1 = new ListNode(4, null);
-var num2_2 = new ListNode(6, num1_1);
-var num2_3 = new ListNode(5, num1_2);
+let local = getListNodeFromNumber( 342 )
 
-let listNode1 = addTwoNumbers(num1_3, num2_3)
-
-console.log( listNode1 )
+let listNode = addTwoNumbers(num1, num2)
+console.log( listNode )
 
 // 942 and 9465
-var num3_1 = new ListNode(9, null);
-var num3_2 = new ListNode(4, num3_1);
-var num3_3 = new ListNode(2, num3_2);
+num1 = getListNodeFromNumber( 942 )
+num2 = getListNodeFromNumber( 9465 )
 
-var num4_1 = new ListNode(9, null);
-var num4_2 = new ListNode(4, num4_1);
-var num4_3 = new ListNode(6, num4_2);
-var num4_4 = new ListNode(5, num4_3);
+listNode = addTwoNumbers(num1, num2)
+console.log( listNode )
 
-let listNode2 = addTwoNumbers(num3_3, num4_4)
+function getListNodeFromNumber(num : number) : ListNode | null {
 
-console.log( listNode2 )
+    let result: ListNode | null = null
+    let dummyHead = new ListNode(); //empty
+    const chars = [...num.toString()];
+
+    for(let c of chars) {
+        let local = new ListNode(Number(c))
+
+        if(result == null) {
+            result = local
+            dummyHead = result
+        } else {
+            dummyHead.next = local
+            dummyHead = dummyHead.next
+        }
+    }
+
+    return result
+}
 
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
    
