@@ -9,28 +9,29 @@ class ListNode {
 }
 
 // 342 and 465
-let num1 = getListNodeFromNumber( 342 )
-let num2 = getListNodeFromNumber( 465 )
-
-let local = getListNodeFromNumber( 342 )
-
-let listNode = addTwoNumbers(num1, num2)
-console.log( listNode )
+let num1 = getListNodeFromNumber( "342" )
+let num2 = getListNodeFromNumber( "465" )
+addTwoNumbers(num1, num2)
 
 // 942 and 9465
-num1 = getListNodeFromNumber( 942 )
-num2 = getListNodeFromNumber( 9465 )
+num1 = getListNodeFromNumber( "942" )
+num2 = getListNodeFromNumber( "9465" )
+addTwoNumbers(num1, num2)
 
-listNode = addTwoNumbers(num1, num2)
-console.log( listNode )
 
-function getListNodeFromNumber(num : number) : ListNode | null {
+//1000000000000000000000000000001 and 465
+num1 = getListNodeFromNumber( "1000000000000000000000000000001" )
+num2 = getListNodeFromNumber( "465" )
+addTwoNumbers(num1, num2)
 
+
+function getListNodeFromNumber(num : string) : ListNode | null {
+    console.log("hello" + num )
     let result: ListNode | null = null
     let dummyHead = new ListNode(); //empty
-    const chars = [...num.toString()];
+    const chars = [...num];
 
-    for(let c of chars) {
+    for(let c of chars.reverse()) {
         let local = new ListNode(Number(c))
 
         if(result == null) {
@@ -41,7 +42,7 @@ function getListNodeFromNumber(num : number) : ListNode | null {
             dummyHead = dummyHead.next
         }
     }
-
+    console.log(result)
     return result
 }
 
@@ -56,12 +57,17 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
     current = current.next
    }
 
+   //reverse
+   sum1 = sum1.split('').reverse().join('')
+
    current = l2
 
    while(current != null) {
     sum2 = sum2 + current.val
     current = current.next
    }
+
+   sum2 = sum2.split('').reverse().join('')
 
    console.log( "1st : " + sum1 )
    console.log( "2nd : " + sum2 )
@@ -93,6 +99,6 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
 
     //in case empty result
     if (result == null) result = new ListNode(); //zero
-
+    console.log( result )
    return result
 };
