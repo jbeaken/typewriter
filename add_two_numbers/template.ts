@@ -1,12 +1,5 @@
-class ListNode {
-    val: number
-    next: ListNode | null
-
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val)
-        this.next = (next===undefined ? null : next)
-    }
-}
+import {ListNode} from './listnode'
+import {getListNodeFromNumber} from './listnode'
 
 // 342 and 465
 let num1 = getListNodeFromNumber( "342" )
@@ -25,26 +18,7 @@ num2 = getListNodeFromNumber( "465" )
 addTwoNumbers(num1, num2)
 
 
-function getListNodeFromNumber(num : string) : ListNode | null {
-    console.log("hello" + num )
-    let result: ListNode | null = null
-    let dummyHead = new ListNode(); //empty
-    const chars = [...num];
 
-    for(let c of chars.reverse()) {
-        let local = new ListNode(Number(c))
-
-        if(result == null) {
-            result = local
-            dummyHead = result
-        } else {
-            dummyHead.next = local
-            dummyHead = dummyHead.next
-        }
-    }
-    console.log(result)
-    return result
-}
 
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
    
