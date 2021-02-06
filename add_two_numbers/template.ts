@@ -1,5 +1,5 @@
-import {ListNode} from './listnode'
-import {getListNodeFromNumber} from './listnode'
+import {ListNode} from './app/listnode'
+import {getListNodeFromNumber} from './app/listnode'
 
 // 342 and 465
 let num1 = getListNodeFromNumber( "342" )
